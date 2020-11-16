@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "51476917644",
+    "firebase_url": "https://rock-perigee-284908.firebaseio.com",
+    "project_id": "rock-perigee-284908",
+    "storage_bucket": "rock-perigee-284908.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:51476917644:android:ecaa86db4bc3dbf7863aa9",
+        "android_client_info": {
+          "package_name": "com.example.preventnoshow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "51476917644-pbg0n18ua2t6f70kgmr3jfb4fp8u6pd5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.preventnoshow",
+            "certificate_hash": "6ea85ad46d921b496fd66c71df7d68a3910bff29"
+          }
+        },
+        {
+          "client_id": "51476917644-bhdn8bk7inu8ijka2l5hkidi3084a72u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzbR37GJFSTkonEWfr0gULhF2poSP8asw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "51476917644-bhdn8bk7inu8ijka2l5hkidi3084a72u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
