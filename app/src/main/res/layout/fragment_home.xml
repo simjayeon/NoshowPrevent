@@ -10,17 +10,33 @@
         android:layout_height="wrap_content"
         android:padding="10sp">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_down"
+            android:layout_alignParentRight="true"
+            android:padding="10sp"
+            android:id="@+id/down"/>
+
         <CalendarView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/calendarView"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/down"/>
 
-        <androidx.recyclerview.widget.RecyclerView
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="예약 목록"
+            android:layout_marginLeft="10sp"
+            android:layout_below="@id/calendarView"
+            android:id="@+id/txt"/>
+        <ListView
+            android:id="@+id/listhome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/calendarView"
-            android:layout_marginTop="20sp"/>
-
+            android:layout_below="@id/txt"
+            android:layout_marginTop="5sp"/>
     </RelativeLayout>
 </FrameLayout>

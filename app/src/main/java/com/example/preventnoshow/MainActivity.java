@@ -18,6 +18,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
@@ -28,9 +32,14 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
+    private View drawerView;
     ViewPager pager;
     TabLayout tab;
     ArrayList<Fragment> array;
+
+    LinearLayout lineartop, linearbottom, linearprofile, linearmember;
+    ImageView profileimage;
+    TextView inquire, aboutus, contact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +51,19 @@ public class MainActivity extends AppCompatActivity {
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
 
-        drawerLayout = findViewById(R.id.drawerLayout); //서랍
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerView = (View) findViewById(R.id.drawerView);
+
+        lineartop = findViewById(R.id.lineartop);
+        linearbottom = findViewById(R.id.linearbottom);
+        linearprofile = findViewById(R.id.linearprofile);
+        linearmember = findViewById(R.id.linearmember);
+
+        profileimage = findViewById(R.id.profileimage);
+
+        aboutus = findViewById(R.id.aboutus);
+        inquire = findViewById(R.id.inquire);
+        contact = findViewById(R.id.contact);
         pager = findViewById(R.id.pager);
         tab = findViewById(R.id.tab);
 
@@ -76,11 +97,32 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        aboutus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, AboutusActivity.class));
+            }
+        });
+
+        inquire.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, InquireActivity.class));
+            }
+        });
+
+        contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ContactActivity.class));
+            }
+        });
+
         //뷰페이저에 들어갈 프래그먼트를 프래그먼크 배열에 저장
         array = new ArrayList<>();
         array.add(new HomeFragment());
         array.add(new SearchFragment());
-        array.add(new TransactionFragment());
+        array.add(new BoardFragment());
         array.add(new MyPageFragment());
 
         //페이저 바뀌는 작업
@@ -89,7 +131,6 @@ public class MainActivity extends AppCompatActivity {
         //페이저어댑터를 통해 프래그먼트 설정
         PagerAdapter ad = new PagerAdapter(getSupportFragmentManager());
         pager.setAdapter(ad);
-        getHashKey();
     }
 
     //페이저어댑터 생성_프래그먼트어댑터
@@ -129,24 +170,4 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void getHashKey(){
-        PackageInfo packageInfo = null;
-        try {
-            packageInfo = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        if (packageInfo == null)
-            Log.e("KeyHash", "KeyHash:null");
-
-        for (Signature signature : packageInfo.signatures) {
-            try {
-                MessageDigest md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                Log.d("KeyHash??????????", Base64.encodeToString(md.digest(), Base64.DEFAULT));
-            } catch (NoSuchAlgorithmException e) {
-                Log.e("KeyHash", "Unable to get MessageDigest. signature=" + signature, e);
-            }
-        }
-    }
 }

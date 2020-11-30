@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddLocationActivity"
+    android:padding="10sp">
+
+    <EditText
+        android:id="@+id/editSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="위치 검색"
+        android:maxLines="1"/>
+
+    <ImageView
+        android:id="@+id/btnSearch"
+        android:layout_width="30sp"
+        android:layout_height="30sp"
+        android:src="@drawable/ic_search"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10sp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/editSearch"
+        android:id="@+id/listPlace"/>
+</RelativeLayout>

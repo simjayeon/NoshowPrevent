@@ -77,17 +77,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 strEmail = editEmail.getText().toString();
                 strPassword = editPassword.getText().toString();
-                if(rbtnCustomer.isChecked()){
-                    FirebaseUser user = mAuth.getCurrentUser();
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                }else if(rbtnBoss.isChecked()){
-                    FirebaseUser user = mAuth.getCurrentUser();
-                    Intent intent = new Intent(LoginActivity.this, BossMainActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
                 loginUser(strEmail, strPassword);
             }
         });
@@ -108,10 +97,16 @@ public class LoginActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
+                        if(task.isSuccessful()&&rbtnCustomer.isChecked()){
                             Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent (LoginActivity.this, MainActivity.class);
                             startActivity(intent);
+                            finish();
+                        }else if(task.isSuccessful()&&rbtnBoss.isChecked()){
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            Intent intent = new Intent(LoginActivity.this, BossMainActivity.class);
+                            startActivity(intent);
+                            finish();
                         }else{
                             Toast.makeText(LoginActivity.this, "잘못된 이메일 및 비밀번호입니다.", Toast.LENGTH_SHORT).show();
                         }

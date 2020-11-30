@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/item_place">
+
+    <RelativeLayout
+        android:id="@+id/place"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10sp">
+
+        <TextView
+            android:id="@+id/placeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="장소이름"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/placeAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/placeTitle"
+            android:maxLines="1"
+            android:text="주소"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/placeTel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/placeAddress"
+            android:text="전화번호"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/placeMaps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_location" />
+    </RelativeLayout>
+
+    <!--
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10sp"
+            android:layout_below="@+id/place"
+            android:id="@+id/fragmentMaps"
+            android:visibility="gone">
+
+            <com.google.android.gms.maps.MapView
+                android:layout_width="match_parent"
+                android:layout_height="150sp"
+                android:id="@+id/map"/>
+        </RelativeLayout>
+
+        -->
+
+
+</RelativeLayout>

@@ -1,66 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="5sp">
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lineee"
+        android:background="@drawable/txtline"
+        android:padding="10sp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="제목"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_toRightOf="@+id/category"
+            android:maxLines="1"/>
+
+        <TextView
+            android:layout_marginTop="5sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="내용"
+            android:id="@+id/txtContents"
+            android:maxLines="1"
+            android:layout_below="@id/title"/>
+
+        <ImageView
+            android:layout_width="15sp"
+            android:layout_height="15sp"
+            android:id="@+id/open"
+            android:src="@drawable/ic_foward"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/category"
-        android:text="[카테고리]"/>
+        android:layout_width="match_parent"
+        android:layout_height="10sp"
+        android:layout_below="@id/lineee"
+        android:background="#ffffff"/>
 
-    <TextView
-        android:id="@+id/storeName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="10sp"
-        android:text="점포명"
-        android:layout_toRightOf="@+id/category"
-        android:maxLines="1"/>
-
-    <TextView
-        android:layout_marginTop="5sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="지역 | "
-        android:id="@+id/text"
-        android:layout_below="@id/category"/>
-
-    <TextView
-        android:layout_marginTop="5sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/local"
-        android:text="지역"
-        android:layout_below="@+id/category"
-        android:layout_toRightOf="@id/text"/>
-
-
-    <TextView
-        android:layout_marginTop="5sp"
-        android:layout_marginLeft="15sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="평점  "
-        android:id="@+id/text2"
-        android:layout_below="@id/storeName"
-        android:layout_toRightOf="@id/local"/>
-
-    <TextView
-        android:layout_marginTop="5sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtRating"
-        android:text="0.0"
-        android:layout_below="@+id/storeName"
-        android:layout_toRightOf="@id/text2"/>
-
-
-    <ImageView
-        android:id="@+id/resvCheck"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:padding="10sp"/>
 </RelativeLayout>

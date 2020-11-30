@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:background="#939393"/>
+
+        <EditText
+            android:id="@+id/editTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="제목"
+            android:textSize="20sp"
+            android:padding="10sp"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginTop="10sp"
+            android:backgroundTint="#FFFFFF"/>
+
+        <TextView
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:background="#D5D4D4"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/btnAddLocation"
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginTop="10sp"
+                android:padding="10sp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_location"/>
+
+                <TextView
+                    android:id="@+id/selectLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="위치 추가"
+                    android:textSize="16sp"
+                    android:textColor="#989898"
+                    android:layout_marginLeft="5sp"/>
+            </LinearLayout>
+
+            <Spinner
+                android:id="@+id/spinCategory"
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:background="#E6E6E6"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="5sp"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:background="#D5D4D4"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingRight="10sp">
+
+            <LinearLayout
+                android:id="@+id/btnAddDate"
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="10sp"
+                android:background="@drawable/txtline"
+                android:padding="10sp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_date"/>
+
+                <TextView
+                    android:id="@+id/selectDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="예약한 날짜 선택"
+                    android:textSize="16sp"
+                    android:textColor="#989898"
+                    android:layout_marginLeft="5sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnAddTime"
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10sp"
+                android:layout_marginTop="10sp"
+                android:background="@drawable/txtline"
+                android:padding="10sp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_time"/>
+
+                <TextView
+                    android:id="@+id/selectTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="예약한 시간 선택"
+                    android:textSize="16sp"
+                    android:textColor="#989898"
+                    android:layout_marginLeft="5sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="10sp"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:background="#D5D4D4"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="예약금"
+                android:textSize="16sp"
+                android:textColor="#989898"
+                android:layout_gravity="center"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/editDiposit"
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:hint="금액 입력"
+                android:backgroundTint="#ffffff"
+                android:gravity="right"
+                android:inputType="number"/>
+
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=" (원)"/>
+        </LinearLayout>
+
+
+
+        <TextView
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:background="#D5D4D4"/>
+
+        <EditText
+            android:id="@+id/editContent"
+            android:layout_width="match_parent"
+            android:layout_height="450sp"
+            android:layout_margin="10sp"
+            android:background="@drawable/txtline"
+            android:gravity="top"
+            android:hint="내용을 입력하세요."
+            android:padding="15sp" />
+    </LinearLayout>
+</ScrollView>

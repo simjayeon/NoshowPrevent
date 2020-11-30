@@ -1,139 +1,152 @@
 package com.example.preventnoshow;
-
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.text.Html;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.SearchView;
+import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import static com.example.preventnoshow.RemoteService.BASE_URL;
+import static com.example.preventnoshow.RemoteService.BASE_URL2;
 
 
 public class SearchFragment extends Fragment {
     EditText editSearch;
+    ImageView btnSearch;
     TextView category, storeName, local;
-
-    String url = "https://dapi.kakao.com/v2/local/search/address.json";
-    String query = "미용실";
-    int page =1;
-    int total = 0;
-    boolean isEnd=true;
-
-    ArrayList<HashMap<String,String>> arrayPlace = new ArrayList<>();
-    placeAdapter placeAdapter;
-    RecyclerView listplace;
+    Retrofit retrofit;
+    RemoteService remoteService;
+    List<StoreVO> storeList = new ArrayList<>();
+    StoreAdapter storeAdapter = new StoreAdapter();
+    ListView listStore;
+    TextView txtTitle, txtLocal;
+    String query = "";
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
+        listStore = view.findViewById(R.id.listStore);
+        listStore.setAdapter(storeAdapter);
         editSearch = view.findViewById(R.id.editSearch);
-        category = view.findViewById(R.id.category);
-        storeName = view.findViewById(R.id.storeName);
-        local = view.findViewById(R.id.local);
+        btnSearch = view.findViewById(R.id.btnSearch);
 
-        placeAdapter = new placeAdapter();
-        listplace = view.findViewById(R.id.listPlace);
-        listplace.setLayoutManager(new LinearLayoutManager(getActivity()));
-        listplace.setAdapter(placeAdapter);
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
 
-        new placeThread().execute();
+        retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL2)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build();
+        remoteService = retrofit.create(RemoteService.class);
+
+        Call<List<StoreVO>> call = remoteService.listStore();
+        call.enqueue(new Callback<List<StoreVO>>() {
+            @Override
+            public void onResponse(Call<List<StoreVO>> call, Response<List<StoreVO>> response) {
+                storeList = response.body();
+                //System.out.println("..................."+storeList.size());
+                storeAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call<List<StoreVO>> call, Throwable t) {
+                //System.out.println("..........."+t.toString());
+            }
+        });
+
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                storeList.clear();
+                query = editSearch.getText().toString();
+                Call<StoreVO> call = remoteService.readStore(query);
+                call.enqueue(new Callback<StoreVO>() {
+                    @Override
+                    public void onResponse(Call<StoreVO> call, Response<StoreVO> response) {
+                        StoreVO storeVO = response.body();
+                        storeAdapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onFailure(Call<StoreVO> call, Throwable t) {
+
+                    }
+                });
+                searchTest();
+            }
+        });
         return view;
     }
 
-    class placeThread extends AsyncTask<String, String, String>{
+    public void searchTest(){
+
+    }
+
+    class StoreAdapter extends BaseAdapter{
 
         @Override
-        protected String doInBackground(String... strings) {
-            String result = Kakao.connect(url + "?query="+query+"&page="+page);
-            return result;
+        public int getCount() {
+            return storeList.size();
         }
 
         @Override
-        protected void onPostExecute(String s) {
-            placeParsing(s);
-            placeAdapter.notifyDataSetChanged();
-            super.onPostExecute(s);
-            System.out.println("지역"+arrayPlace.size());
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View view, ViewGroup parent) {
+            view = getActivity().getLayoutInflater().inflate(R.layout.item_search, parent, false);
+            final StoreVO storeVO = storeList.get(position);
+            TextView txtCate = view.findViewById(R.id.category);
+            txtTitle = view.findViewById(R.id.storeName);
+            txtLocal = view.findViewById(R.id.local);
+            String strLocal = storeVO.getAddress().substring(0,2);
+            txtTitle.setText(storeVO.getBname()); //가게명
+            txtLocal.setText(strLocal); //지역
+            txtCate.setText("["+storeVO.getCategory()+"]"); //카테고리
+            String strIntro = storeVO.getIntro();
+
+            ImageView open = view.findViewById(R.id.open);
+            open.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), StoreDetailsActivity.class);
+                    intent.putExtra("storeTitle", storeVO.getBname()) ;
+                    intent.putExtra("address", storeVO.getAddress());
+                    intent.putExtra("txtIntro", storeVO.getIntro());
+                    startActivity(intent);
+                }
+            });
+
+            return view;
         }
     }
 
-    public void placeParsing(String result){
-        try{
-            JSONObject jsonObject = new JSONObject(result).getJSONObject("meta");
-            total = jsonObject.getInt("total");
-            isEnd = jsonObject.getBoolean("is_end");
-
-            JSONArray jsonArray = new JSONObject(result).getJSONArray("documents");
-            for(int i=0; i<jsonArray.length(); i++){
-                JSONObject obj = jsonArray.getJSONObject(i);
-                HashMap <String,String> map = new HashMap<>();
-                map.put("category", obj.getString("place_name"));
-                map.put("storeName", obj.getString("place_name"));
-                map.put("local", obj.getString("region_1depth_name"));
-                System.out.println("..............."+obj.getString("place_name"));
-                arrayPlace.add(map);
-            }
-        }catch (Exception e){
-
-        }
-    }
-
-    class placeAdapter extends RecyclerView.Adapter<placeAdapter.ViewHolder>{
-
-        @NonNull
-        @Override
-        public placeAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = getActivity().getLayoutInflater().inflate(R.layout.item_search, null);
-            return new ViewHolder(view);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull placeAdapter.ViewHolder holder, int position) {
-            HashMap<String, String> map = arrayPlace.get(position);
-            holder.category.setText(Html.fromHtml(map.get("category")));
-            holder.storeName.setText(Html.fromHtml(map.get("storeName")));
-            holder.local.setText(Html.fromHtml(map.get("local")));
-            System.out.println("............................................");
-        }
-
-        @Override
-        public int getItemCount() {
-            return arrayPlace.size();
-        }
-
-        public class ViewHolder extends RecyclerView.ViewHolder {
-            TextView category, storeName, local;
-
-            public ViewHolder(@NonNull View itemView) {
-                super(itemView);
-                category = itemView.findViewById(R.id.category);
-                storeName = itemView.findViewById(R.id.storeName);
-                local = itemView.findViewById(R.id.local);
-            }
-        }
-    }
 }

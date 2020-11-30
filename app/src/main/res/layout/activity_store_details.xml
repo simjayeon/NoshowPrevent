@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StoreDetailsActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200sp"
+        android:id="@+id/titleImage"
+        android:src="@drawable/noimage"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleImage"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/storeTitle"
+            android:text="가게 이름"
+            android:textSize="25sp"
+            android:padding="10sp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgMap"
+            android:layout_gravity="right"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_map"
+            android:padding="10sp"/>
+
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="주소"
+             android:padding="10sp"
+             android:layout_below="@id/storeTitle"
+             android:id="@+id/address"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/address"
+            android:paddingLeft="10sp"
+            android:orientation="horizontal"
+            android:id="@+id/linear">
+
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:src="@drawable/ic_star"
+                android:id="@+id/img"
+                android:layout_marginTop="5sp"
+                android:layout_marginRight="3sp"/>
+
+            <TextView
+                android:layout_marginTop="5sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtRating"
+                android:text="0.0"
+                android:layout_toRightOf="@id/img"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="소개"
+            android:padding="10sp"
+            android:layout_below="@id/linear"
+            android:id="@+id/txtIntro"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:padding="5sp">
+
+            <TextView
+                android:id="@+id/btnCall"
+                android:padding="10sp"
+                android:layout_width="200sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="전화 문의"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:background="@drawable/button"
+                android:layout_marginRight="5sp"/>
+
+            <TextView
+                android:id="@+id/btnResv"
+                android:padding="10sp"
+                android:layout_width="200sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="예약 하기"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:background="@drawable/button"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -31,6 +31,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
+import retrofit2.Retrofit;
+
 public class RegisterActivity extends AppCompatActivity {
     EditText edtEmail, edtPassword, edtName, edtPwCheck;
     TextView btnRegister, btnCancel;
@@ -39,6 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
     RadioButton female, male;
     CheckBox checkBox1, checkBox2;
     ImageView checkimg;
+
     private FirebaseAuth mAuth;
     FirebaseDatabase database;
 
@@ -153,7 +156,7 @@ public class RegisterActivity extends AppCompatActivity {
                                             hashMap.put("position", position);
 
                                             FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                            DatabaseReference reference = database.getReference("Users").child("Customer").child("Info").child(uid);
+                                            DatabaseReference reference = database.getReference("Noshow").child("Users").child("Customer").child("Info").child(uid);
                                             reference.setValue(hashMap);
 
                                             //가입이 이루어져을시 가입 화면을 빠져나감

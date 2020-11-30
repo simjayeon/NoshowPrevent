@@ -17,6 +17,8 @@
             android:orientation="horizontal">
 
             <EditText
+                android:layout_marginLeft="10sp"
+                android:padding="5sp"
                 android:layout_weight="9"
                 android:layout_width="0sp"
                 android:layout_height="30sp"
@@ -31,14 +33,15 @@
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_search"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:layout_marginLeft="8sp"/>
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
+        <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20sp"
-            android:id="@+id/listPlace"/>
+            android:id="@+id/listStore"
+            android:padding="10sp"/>
     </LinearLayout>
 
 
