@@ -29,13 +29,21 @@
             android:maxLines="1"
             android:layout_below="@id/title"/>
 
+        <TextView
+            android:id="@+id/createDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="작성날짜" />
+
         <ImageView
+            android:id="@+id/open"
             android:layout_width="15sp"
             android:layout_height="15sp"
-            android:id="@+id/open"
-            android:src="@drawable/ic_foward"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"/>
+            android:layout_below="@id/createDate"
+            android:src="@drawable/ic_open" />
+
 
     </RelativeLayout>
 

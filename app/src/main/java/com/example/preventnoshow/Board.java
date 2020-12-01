@@ -3,6 +3,16 @@ package com.example.preventnoshow;
 public class Board {
     String title; //글제목
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    String email;
+
     public String getCategory() {
         return category;
     }

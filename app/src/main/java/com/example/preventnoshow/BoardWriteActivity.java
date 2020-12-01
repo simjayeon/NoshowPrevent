@@ -58,6 +58,7 @@ public class BoardWriteActivity extends AppCompatActivity {
     String strId, strTitle, strContent, strPlace, strCt;
     FirebaseDatabase database ;
     DatabaseReference myRef;
+    FirebaseAuth mAuth;
     String[] categoryList = {"전체", "미용", "외식"};
     Spinner spinCategory;
     String a;
@@ -70,6 +71,11 @@ public class BoardWriteActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("게시글 작성");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String email = user.getEmail();
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("Noshow/" + user.getUid());
 
         Gson gson = new GsonBuilder()
                 .setLenient()
@@ -200,22 +206,23 @@ public class BoardWriteActivity extends AppCompatActivity {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
 
-                                    long now = System.currentTimeMillis();
-                                    Date date = new Date(now);
-                                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-                                    String formatDate = sdf.format(date);
+                                    FirebaseUser user = mAuth.getInstance().getCurrentUser();
+                                    String email = user.getEmail();
 
                                     final Board board=new Board();
+                                    board.setEmail(email);
                                     board.setTitle(edtTitle.getText().toString());
                                     board.setPlace(selectLocation.getText().toString());
                                     board.setDate(selectDate.getText().toString());
                                     board.setTime(selectTime.getText().toString());
                                     board.setDiposit(editDiposit.getText().toString());
                                     board.setContents(edtContent.getText().toString());
+                                    SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                                    board.setCreateDate(sdf.format(new Date()));
                                     //board.setCreateDate(formatDate);
 
                                     Call<Void> call = remoteService.insertBoard(
-                                            board.getTitle(), board.getPlace(), board.getDate(), board.getTime(), board.getDiposit(), board.getContents(), board.getCategory(), board.getCreateDate());
+                                            board.getEmail(), board.getTitle(), board.getPlace(), board.getDate(), board.getTime(), board.getDiposit(), board.getContents(), board.getCategory(), board.getCreateDate());
                                     call.enqueue(new Callback<Void>() {
                                         @Override
                                         public void onResponse(Call<Void> call, Response<Void> response) {

@@ -68,7 +68,7 @@
             android:layout_width="15sp"
             android:layout_height="15sp"
             android:id="@+id/open"
-            android:src="@drawable/ic_foward"
+            android:src="@drawable/ic_open"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"/>
 

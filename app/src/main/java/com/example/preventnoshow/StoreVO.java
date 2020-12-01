@@ -1,13 +1,39 @@
 package com.example.preventnoshow;
 
 public class StoreVO {
-    private String bid; //사업자번호
-    private String bname; //상호명
-    private String name;
+    private String sid; //사업자번호
+    private String bname;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    private String email;
+
+    public String getSid() {
+        return sid;
+    }
+
+    public void setSid(String sid) {
+        this.sid = sid;
+    }
+
+    public String getSname() {
+        return sname;
+    }
+
+    public void setSname(String sname) {
+        this.sname = sname;
+    }
+
+    private String sname;
     private String address;
     private String tel;
     private String intro;
-    private String logo;
 
     public String getCategory() {
         return category;
@@ -18,15 +44,6 @@ public class StoreVO {
     }
 
     private String category;
-
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getAddress() {
         return address;
@@ -50,23 +67,6 @@ public class StoreVO {
 
     public void setIntro(String intro) {
         this.intro = intro;
-    }
-
-    public String getLogo() {
-        return logo;
-    }
-
-    public void setLogo(String logo) {
-        this.logo = logo;
-    }
-
-
-    public String getBid() {
-        return bid;
-    }
-
-    public void setBid(String bid) {
-        this.bid = bid;
     }
 
     public String getBname() {

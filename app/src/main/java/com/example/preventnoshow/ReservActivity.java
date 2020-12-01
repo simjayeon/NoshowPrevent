@@ -100,7 +100,12 @@ public class ReservActivity extends AppCompatActivity {
                         .setPositiveButton("예", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                FirebaseUser user = mAuth.getInstance().getCurrentUser();
+                                String email = user.getEmail();
+
                                 ResvVO vo = new ResvVO();
+
+                                vo.setEmail(email);
                                 vo.setRname(editName.getText().toString());
                                 vo.setRtel(editTel.getText().toString());
                                 vo.setRdate(txtDate.getText().toString());
@@ -110,7 +115,7 @@ public class ReservActivity extends AppCompatActivity {
                                 if(vo.getRdate().equals("2020-00-00")||vo.getRtime().equals("시간 선택")|vo.getRname().equals(" ")|vo.getRtel().equals(" ")){
                                     Toast.makeText(ReservActivity.this, "내용을 정확히 입력해주세요.", Toast.LENGTH_SHORT).show();
                                 }else{
-                                    Call<Void> call = remoteService.insertResv(vo.getRname(), vo.getRtel(), vo.getRdate(), vo.getRtime(), vo.getBname());
+                                    Call<Void> call = remoteService.insertResv(vo.getEmail(),vo.getRname(), vo.getRtel(), vo.getRdate(), vo.getRtime(), vo.getBname());
                                     call.enqueue(new Callback<Void>() {
                                         @Override
                                         public void onResponse(Call<Void> call, Response<Void> response) {

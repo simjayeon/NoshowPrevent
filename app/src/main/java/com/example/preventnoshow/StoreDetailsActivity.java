@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class StoreDetailsActivity extends AppCompatActivity {
     TextView btnResv, storeTitle, txtIntro, address;
-    ImageView imgMap;
+    ImageView imgMap, thumbnail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,11 +20,20 @@ public class StoreDetailsActivity extends AppCompatActivity {
         storeTitle = findViewById(R.id.storeTitle);
         txtIntro = findViewById(R.id.txtIntro);
         address = findViewById(R.id.address);
+        thumbnail = findViewById(R.id.titleImage);
 
         Intent intent = getIntent();
         storeTitle.setText(intent.getStringExtra("storeTitle"));
         txtIntro.setText(intent.getStringExtra("txtIntro"));
         address.setText(intent.getStringExtra("address"));
+        String strCategory = intent.getStringExtra("category");
+
+        //이미지
+        if(strCategory=="외식"){
+            thumbnail.setImageResource(R.drawable.asdf); //수정해야함
+        }else if(strCategory=="미용"){
+            thumbnail.setImageResource(R.drawable.asdf);
+        }
 
         imgMap = findViewById(R.id.imgMap);
         imgMap.setOnClickListener(new View.OnClickListener() {

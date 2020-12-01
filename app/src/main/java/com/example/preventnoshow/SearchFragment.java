@@ -24,7 +24,6 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.example.preventnoshow.RemoteService.BASE_URL;
 import static com.example.preventnoshow.RemoteService.BASE_URL2;
 
 
@@ -128,7 +127,7 @@ public class SearchFragment extends Fragment {
             txtTitle = view.findViewById(R.id.storeName);
             txtLocal = view.findViewById(R.id.local);
             String strLocal = storeVO.getAddress().substring(0,2);
-            txtTitle.setText(storeVO.getBname()); //가게명
+            txtTitle.setText(storeVO.getSname()); //가게명
             txtLocal.setText(strLocal); //지역
             txtCate.setText("["+storeVO.getCategory()+"]"); //카테고리
             String strIntro = storeVO.getIntro();
@@ -138,9 +137,10 @@ public class SearchFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(getActivity(), StoreDetailsActivity.class);
-                    intent.putExtra("storeTitle", storeVO.getBname()) ;
+                    intent.putExtra("storeTitle", storeVO.getSname()) ;
                     intent.putExtra("address", storeVO.getAddress());
                     intent.putExtra("txtIntro", storeVO.getIntro());
+                    intent.putExtra("category", storeVO.getCategory());
                     startActivity(intent);
                 }
             });

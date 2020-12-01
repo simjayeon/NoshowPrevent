@@ -12,6 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -27,8 +28,6 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.example.preventnoshow.RemoteService.BASE_URL;
-import static com.example.preventnoshow.RemoteService.BASE_URL3;
 import static com.example.preventnoshow.RemoteService.BASE_URL4;
 
 
@@ -39,6 +38,7 @@ public class BoardFragment extends Fragment {
     List<Board> boardList = new ArrayList<>();
     ListView listBoard;
     BoardAdapter boardAdapter = new BoardAdapter();
+    RelativeLayout lineee;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,7 +52,7 @@ public class BoardFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
+        lineee = view.findViewById(R.id.lineee);
         listBoard = view.findViewById(R.id.listBoard);
         listBoard.setAdapter(boardAdapter);
 
@@ -106,16 +106,15 @@ public class BoardFragment extends Fragment {
             view = getActivity().getLayoutInflater().inflate(R.layout.item_board, parent, false);
             TextView txtTitle = view.findViewById(R.id.title);
             TextView txtContents = view.findViewById(R.id.txtContents);
-            TextView txtCategory = view.findViewById(R.id.category);
+            TextView txtCreateDate = view.findViewById(R.id.createDate);
 
             final  Board board = boardList.get(position);
             txtTitle.setText(board.getTitle());
             String str = board.getContents();
             System.out.println(str);
             txtContents.setText(str);
-            //txtCreateDate.setText(board.getCreateDate());
+            txtCreateDate.setText(board.getCreateDate());
             String strDate = board.getDate();
-            String strTime = board.getTime();
 
             ImageView open = view.findViewById(R.id.open);
             open.setOnClickListener(new View.OnClickListener() {

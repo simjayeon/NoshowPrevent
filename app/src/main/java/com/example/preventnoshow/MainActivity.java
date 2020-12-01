@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         //탭에 아이콘 추가
         tab.getTabAt(0).setIcon(R.drawable.home);
         tab.getTabAt(1).setIcon(R.drawable.store);
-        tab.getTabAt(2).setIcon(R.drawable.logo);
+        tab.getTabAt(2).setIcon(R.drawable.free_icon);
         tab.getTabAt(3).setIcon(R.drawable.user2);
 
         //탭을 누를 때때마다 포지션이바뀌는 작업
