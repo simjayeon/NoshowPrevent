@@ -44,4 +44,7 @@ public interface RemoteService {
 
     @GET("read.jsp")
     Call<StoreVO> readStore(@Query("bname") String bname);
+
+    @POST("delete.jsp")
+    Call<Void> deleteStore(@Query("sid") String sid);
 }

@@ -1,6 +1,9 @@
 package com.example.preventnoshow;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,7 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
@@ -34,6 +40,7 @@ public class StoreManageFragment extends Fragment {
     ListView listSM;
     SMAdapter smAdapter = new SMAdapter();
     List<StoreVO> smList = new ArrayList<>();
+    TextView btnDelete;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -97,10 +104,44 @@ public class StoreManageFragment extends Fragment {
 
         @Override
         public View getView(int position, View view, ViewGroup parent) {
-           // view = getActivity().getLayoutInflater().inflate(R.layout.item_boss, parent, false);
-            //여기 수정해야함
+            view = getActivity().getLayoutInflater().inflate(R.layout.item_boss, parent, false);
+            TextView sName = view.findViewById(R.id.sName);
+            TextView bName = view.findViewById(R.id.bName);
+            TextView sId = view.findViewById(R.id.sId);
+            TextView tel = view.findViewById(R.id.tel);
 
-            return null;
+            final StoreVO storeVO = smList.get(position);
+            sName.setText(storeVO.getSname());
+            bName.setText(storeVO.getBname());
+            sId.setText(storeVO.getSid());
+            tel.setText(storeVO.getTel());
+
+            btnDelete = view.findViewById(R.id.btnDelete);
+            btnDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder box = new AlertDialog.Builder(getActivity());
+                    box.setMessage("삭제하시겠습니까?");
+                    box.setPositiveButton("예", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            String strSid = sId.getText().toString();
+                            Call<Void> call = remoteService.deleteStore(strSid);
+                            call.enqueue(new Callback<Void>() {
+                                public void onResponse(Call<Void> call, Response<Void> response) {
+                                    Toast.makeText(getActivity(), "가게정보 삭제", Toast.LENGTH_SHORT);
+                                    onResume();
+                                }
+                                public void onFailure(Call<Void> call, Throwable t) { }
+                            });
+                        }
+                    });
+                    box.setNegativeButton("아니오", null);
+                    box.show();
+                }
+            });
+
+
+            return view;
         }
     }
 }

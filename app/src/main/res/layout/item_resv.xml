@@ -4,8 +4,8 @@
     android:layout_height="wrap_content"
     android:background="@drawable/txtline"
     android:orientation="vertical"
-    android:padding="10sp">
-
+    android:padding="10sp"
+    android:layout_margin="10sp">
 
         <TextView
             android:id="@+id/name2"

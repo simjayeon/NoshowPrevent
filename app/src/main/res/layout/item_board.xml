@@ -43,14 +43,5 @@
             android:layout_alignParentRight="true"
             android:layout_below="@id/createDate"
             android:src="@drawable/ic_open" />
-
-
     </RelativeLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="10sp"
-        android:layout_below="@id/lineee"
-        android:background="#ffffff"/>
-
 </RelativeLayout>
