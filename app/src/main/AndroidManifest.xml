@@ -19,7 +19,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PreventNoShow"
         android:usesCleartextTraffic="true">
-        <activity android:name=".StoreRegisterActivity"></activity>
+        <activity android:name=".TransferActivity"></activity>
+        <activity android:name=".StoreRegisterActivity" />
         <activity android:name=".WithdrawActivity" />
         <activity android:name=".GuideActivity" />
         <activity android:name=".MypageActivity" />

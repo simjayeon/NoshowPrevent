@@ -9,9 +9,9 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface RemoteService {
-    public static final String BASE_URL2 = "http://192.168.25.14:8088/store/";
-    public static final String BASE_URL3 = "http://192.168.25.14:8088/resvlist/";
-    public static final String BASE_URL4 = "http://192.168.25.14:8088/board/";
+    public static final String BASE_URL2 = "http://192.168.25.23:8088/store/";
+    public static final String BASE_URL3 = "http://192.168.25.23:8088/resvlist/";
+    public static final String BASE_URL4 = "http://192.168.25.23:8088/board/";
 
     @GET("list.jsp")
     Call<List<StoreVO>> listStore();

@@ -141,6 +141,7 @@ public class SearchFragment extends Fragment {
                     intent.putExtra("address", storeVO.getAddress());
                     intent.putExtra("txtIntro", storeVO.getIntro());
                     intent.putExtra("category", storeVO.getCategory());
+                    intent.putExtra("tel", storeVO.getTel());
                     startActivity(intent);
                 }
             });

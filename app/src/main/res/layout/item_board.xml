@@ -12,13 +12,14 @@
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="wrap_content"
+            android:layout_width="210sp"
             android:layout_height="wrap_content"
             android:text="제목"
             android:textSize="15sp"
             android:textStyle="bold"
             android:layout_toRightOf="@+id/category"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            android:ellipsize="end"/>
 
         <TextView
             android:layout_marginTop="5sp"
