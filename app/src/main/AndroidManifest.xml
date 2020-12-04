@@ -19,7 +19,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PreventNoShow"
         android:usesCleartextTraffic="true">
-        <activity android:name=".TransferActivity"></activity>
+        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".TransferActivity" />
         <activity android:name=".StoreRegisterActivity" />
         <activity android:name=".WithdrawActivity" />
         <activity android:name=".GuideActivity" />
@@ -53,7 +54,7 @@
         <activity android:name=".ChatListActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

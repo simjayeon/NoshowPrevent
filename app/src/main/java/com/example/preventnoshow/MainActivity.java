@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //액션바 설정
-        getSupportActionBar().setTitle("노쇼");
+        getSupportActionBar().setTitle("Shovv");
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
 
