@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutusActivity"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linear01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:layout_marginTop="30sp"
+                android:layout_marginBottom="20sp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="300sp"
+                    android:layout_height="250sp"
+                    android:src="@drawable/a"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10sp"/>
+
+                <TextView
+                    android:id="@+id/title01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No Show를 아시나요?"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"/>
+
+                <TextView
+                    android:id="@+id/context01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No Show란, 예약을 했지만 취소 연락없이\n예약 장소에
+나타나지 않는 것을 말합니다.
+\n다른 말로 '예약 부도'라고도 하죠."
+                    android:textSize="15sp"
+                    android:layout_marginTop="10sp"
+                    android:gravity="center_horizontal"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20sp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="350sp"
+                    android:layout_height="150sp"
+                    android:src="@drawable/b"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10sp"/>
+
+                <TextView
+                    android:id="@+id/title02"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="그게 왜 문제가 되나요?"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"/>
+
+                <TextView
+                    android:id="@+id/context02"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No Show는 비단 음식점뿐만이 아니라\n
+숙박업체, 병원, 대중교통 등 서비스 산업 전체에 걸쳐\n널리
+발생하고 있는 사회적 문제로 지적되고 있답니다.\n\n
+그럼 이로 인해 서비스업계는 얼마나 피해를 입었을까요?\n
+우리나라 5대 서비스업종에서
+No Show로 인해 발생한\n경제적 피해는 무려 연간 4조 5천억원이라고 해요.\n
+게다가 이에 따른 고용손실 또한 10만 8,170명이나\n된답니다.
+어마어마한 경제적 손실이 아닐 수 없죠."
+                    android:textSize="12sp"
+                    android:layout_marginTop="10sp"
+                    android:gravity="center_horizontal"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20sp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="300sp"
+                    android:layout_height="300sp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/c"
+                    android:layout_marginBottom="10sp"/>
+
+                <TextView
+                    android:id="@+id/title03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="해결방법은 없나요?"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"/>
+
+                <TextView
+                    android:id="@+id/context03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="이러한 엄청난 경제적 손실과 자영업자들의 고충은
+\n우리 주변의 수많은 서비스업 종사자분들 \n모두가 겪고 있는 큰 문제이죠.\n\n
+그럼 어떻게 해야 사람들이 예약부도를 멈출까요?\n
+물론 많은 사람들에게 예약에 대한 책임감을 심는 것은 어려운 일이죠.\n지금도 전화 한 통이면 변경+취소할 수 있는 예약이\n부도가 나는데,
+전화 한 통보다 쉬운 방법으로\n예약관리가 가능하지 않는 한은 \nNo Show 퇴치는 어렵겠죠."
+                    android:textSize="12sp"
+                    android:layout_marginTop="10sp"
+                    android:gravity="center_horizontal"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20sp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="200sp"
+                    android:layout_height="200sp"
+                    android:src="@mipmap/ic_main"
+                    android:layout_marginBottom="10sp"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/title04"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="그래서, Prevent NoShow 입니다."
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"/>
+
+                <TextView
+                    android:id="@+id/context04"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="수많은 중고물품 거래 사이트를 보고, 문득 떠올랐습니다.\n
+예약 또한 상품이라고 생각하면, 교환이 가능하지 않을까?\n그렇게 만든 예약교환 어플, Shovv입니다."
+                    android:textSize="12sp"
+                    android:layout_marginTop="10sp"
+                    android:gravity="center_horizontal"
+                    android:layout_marginBottom="30sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10sp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout2"
+        android:background="@drawable/txtline"
+        android:padding="10sp">
+
+        <TextView
+            android:id="@+id/sName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="사업장명"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/bName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="사업자이름"
+            android:layout_below="@id/sName"/>
+
+        <TextView
+            android:id="@+id/sId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="사업자번호"
+            android:layout_below="@id/bName"/>
+
+        <TextView
+            android:id="@+id/tel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="전화번호"
+            android:layout_below="@id/sId"/>
+
+        <TextView
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_delete"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+</RelativeLayout>

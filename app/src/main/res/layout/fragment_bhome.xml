@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BhomeFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10sp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_down"
+            android:layout_alignParentRight="true"
+            android:padding="10sp"
+            android:id="@+id/down"/>
+
+        <CalendarView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/calendarView"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/down"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="예약자 목록"
+            android:layout_marginLeft="10sp"
+            android:layout_below="@id/calendarView"
+            android:id="@+id/txt"/>
+        <ListView
+            android:id="@+id/listbome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt"
+            android:layout_marginTop="5sp"/>
+    </RelativeLayout>
+</FrameLayout>

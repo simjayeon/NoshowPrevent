@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GuideActivity"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="30sp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10sp"
+                android:layout_marginTop="5sp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1.  이용방법"
+                    android:textSize="20sp"/>
+
+                <ImageView
+                    android:id="@+id/open01"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_down"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginTop="3sp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/guideContext01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=" - 가맹점에 한하여 이용이 가능합니다.\n
+- 가맹점의 예약내역은 모두 확인하실 수 있습니다.\n
+- 예약교환의 경우, 양도를 받거나 할 수 있습니다.\n
+- 양도받은 예약 또한 양도가 가능합니다.\n
+- 양도시에는 양도비(예약금)이 부과됩니다.\n
+- 점주는 여러개의 매장을 관리할 수 있습니다.\n"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10sp"
+                android:layout_marginTop="5sp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2.  이용제한 기준"
+                    android:textSize="20sp"/>
+
+                <ImageView
+                    android:id="@+id/open02"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_down"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginTop="3sp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/guideContext02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="   [ 고객 ]\n
+- 양도받은 예약을 부도낸 경우 1회 경고\n
+- 경고 2회시 예약금 추가 부과\n\n
+[ 점주 ]\n
+- 예약이 있음에도 휴점을 한 경우 1회 경고\n
+- 경고 2회시 예약금 수수료 감소\n"
+                android:layout_marginLeft="10sp"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10sp"
+                android:layout_marginTop="5sp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3.  사기 및 신고"
+                    android:textSize="20sp"/>
+
+                <ImageView
+                    android:id="@+id/open03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginTop="3sp"
+                    android:src="@drawable/ic_down" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/guideContext03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=" - 예약 고객이 예약부도를 낸 경우\n
+- 예약이 있는 날짜에 해당 가맹점이 휴점할 경우\n
+- 예약이 있는 날짜에 해당 가맹점이 접객을 거절할 경우\n
+- 예약가능 시간대에 해당 가맹점이 예약을 거절할 경우\n"
+                android:layout_marginLeft="10sp"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10sp"
+                android:layout_marginTop="5sp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4. 추후 서비스 방향성"
+                    android:textSize="20sp"/>
+
+                <ImageView
+                    android:id="@+id/open04"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_down"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginTop="3sp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/guideContext04"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=" - "
+                android:layout_marginLeft="10sp"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10sp"
+                android:layout_marginTop="5sp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5. 고객 편의성 향상 및 추가"
+                    android:textSize="20sp"/>
+
+                <ImageView
+                    android:id="@+id/open05"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_down"
+                    android:layout_marginLeft="10sp"
+                    android:layout_marginTop="3sp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/guideContext05"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=" - 채팅 기능을 추가할 예정입니다.\n
+- 매너점수 시스템을 추가할 예정입니다.\n
+- 가맹점 평가 시스템을 추가할 예정입니다.\n
+- 가맹 카테고리 및 매장을 추가할 예정입니다.\n"
+                android:layout_marginLeft="10sp"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

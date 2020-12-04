@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InquireActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15sp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="※ 부적절한 표현 사용 시 불이익이 발생할 수 있습니다."
+                android:backgroundTint="@drawable/text_box"
+                android:padding="5sp"
+                android:layout_marginBottom="10sp"/>
+
+            <EditText
+                android:id="@+id/inquireTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=" 제목을 입력하세요"/>
+
+            <EditText
+                android:id="@+id/inquireContext"
+                android:layout_width="match_parent"
+                android:layout_height="300sp"
+                android:hint=" 내용을 입력하세요"
+                android:gravity="top"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/inquireSubmit"
+                    android:layout_width="70sp"
+                    android:layout_height="wrap_content"
+                    android:text="제출"
+                    android:layout_marginRight="10sp"/>
+
+                <Button
+                    android:id="@+id/inquireCancel"
+                    android:layout_width="70sp"
+                    android:layout_height="wrap_content"
+                    android:text="취소" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
