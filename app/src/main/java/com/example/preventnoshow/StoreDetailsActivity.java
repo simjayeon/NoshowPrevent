@@ -39,14 +39,6 @@ public class StoreDetailsActivity extends AppCompatActivity {
             thumbnail.setImageResource(R.drawable.asdf);
         }
 
-        imgMap = findViewById(R.id.imgMap);
-        imgMap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent1 = new Intent(StoreDetailsActivity.this, MapsActivity.class);
-                startActivity(intent1);
-            }
-        });
 
         btnCall.setOnClickListener(new View.OnClickListener() {
             @Override
